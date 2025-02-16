@@ -6,7 +6,7 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:48:15 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/02/15 15:23:28 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/02/16 10:43:07 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,6 @@ int		ft_isspace(int c);
 int		ft_getchar(void);
 char	*get_next_line(int fd);
 char	*super_get_next_line(int fd);
+int		*ft_super_strlen(char **array);
+
 #endif
