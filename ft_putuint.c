@@ -6,11 +6,11 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 11:45:38 by yrhandou          #+#    #+#             */
-/*   Updated: 2024/12/12 12:23:49 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/02/16 10:37:54 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_putuint(unsigned int n)
 {

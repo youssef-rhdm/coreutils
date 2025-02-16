@@ -6,11 +6,11 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 11:29:50 by yrhandou          #+#    #+#             */
-/*   Updated: 2024/12/13 20:41:41 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/02/16 10:37:25 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_puthex(unsigned long nbr, char flag)
 {

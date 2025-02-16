@@ -6,11 +6,11 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 14:10:28 by yrhandou          #+#    #+#             */
-/*   Updated: 2024/12/07 11:56:46 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/02/16 10:37:15 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_putnbr(int n)
 {
