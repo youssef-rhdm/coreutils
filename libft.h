@@ -6,7 +6,7 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:48:15 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/02/16 10:43:07 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/03/05 15:13:36 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,31 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdarg.h>
+
+// typedef struct s_stack
+// {
+// 	int data;
+// 	struct s_stack *next;
+// 	struct s_stack *prev;
+// } t_stack;
+
+# define BLK "\e[0;30m"
+# define RED "\e[0;31m"
+# define GRN "\e[0;32m"
+# define YEL "\e[0;33m"
+# define BLU "\e[0;34m"
+# define MAG "\e[0;35m"
+# define CYN "\e[0;36m"
+# define WHT "\e[0;37m"
+# define BHBLK "\e[1;90m"
+# define BHRED "\e[1;91m"
+# define BHGRN "\e[1;92m"
+# define BHYEL "\e[1;93m"
+# define BHBLU "\e[1;94m"
+# define BHMAG "\e[1;95m"
+# define BHCYN "\e[1;96m"
+# define BHWHT "\e[1;97m"
+# define RESET "\e[0m"
 
 int		ft_printf(const char *str, ...);
 int		ft_putchar(char c);
@@ -68,5 +93,6 @@ int		ft_getchar(void);
 char	*get_next_line(int fd);
 char	*super_get_next_line(int fd);
 int		*ft_super_strlen(char **array);
-
+void	ft_print_stacks_side_by_side(t_stack *stack1, t_stack *stack2);
+void	print_stack(t_stack *stack);
 #endif
