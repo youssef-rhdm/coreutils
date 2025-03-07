@@ -6,7 +6,7 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:48:15 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/03/05 15:13:36 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/03/07 15:48:26 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,23 @@
 # include <limits.h>
 # include <stdarg.h>
 
-// typedef struct s_stack
-// {
-// 	int data;
-// 	struct s_stack *next;
-// 	struct s_stack *prev;
-// } t_stack;
+/*
+	TODO:  Add New Functions to the header
+*/
+
+
+typedef struct s_stack
+{
+	int data;
+	struct s_stack *next;
+	struct s_stack *prev;
+} t_stack;
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+} t_list;
 
 # define BLK "\e[0;30m"
 # define RED "\e[0;31m"

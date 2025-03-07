@@ -12,9 +12,95 @@
 
 #include "libft.h"
 
-static int	check_format(va_list va, char str)
+int ft_putchar(char c)
 {
-	int	counter;
+	return (write(1, &c, 1));
+}
+int ft_putstr(char *str)
+{
+	int i;
+
+	if (!str)
+		return (write(1, "(null)", 6));
+	i = 0;
+	while (str[i] != '\0')
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+	return (i);
+}
+int ft_putnbr(int n)
+{
+	int count;
+
+	count = 0;
+	if (n == -2147483648)
+	{
+		return (ft_putstr("-2147483648"));
+	}
+	else if (n < 0)
+	{
+		n *= -1;
+		count += ft_putchar('-');
+		count += ft_putnbr(n);
+	}
+	else if (n > 9)
+	{
+		count += ft_putnbr(n / 10);
+		count += ft_putnbr(n % 10);
+	}
+	else
+		count += ft_putchar(n + 48);
+	return (count);
+}
+
+int ft_puthex(unsigned long nbr, char flag)
+{
+	int count;
+	char *hex_list;
+
+	count = 0;
+	if (flag == 'X')
+		hex_list = "0123456789ABCDEF";
+	else if (flag == 'x')
+		hex_list = "0123456789abcdef";
+	if (nbr > 15)
+	{
+		count += ft_puthex(nbr / 16, flag);
+		count += ft_puthex(nbr % 16, flag);
+	}
+	else
+		count += ft_putchar(hex_list[nbr]);
+	return (count);
+}
+int ft_putptr(void *ptr, char flag)
+{
+	int count;
+
+	count = 0;
+	count += ft_putstr("0x");
+	count += ft_puthex((unsigned long)ptr, flag);
+	return (count);
+}
+
+int ft_putuint(unsigned int n)
+{
+	int count;
+
+	count = 0;
+	if (n > 9)
+	{
+		count += ft_putuint(n / 10);
+		count += ft_putchar(n % 10 + 48);
+	}
+	else
+		count += ft_putchar(n + 48);
+	return (count);
+}
+static int check_format(va_list va, char str)
+{
+	int counter;
 
 	counter = 0;
 	if (str == 's')
@@ -34,11 +120,11 @@ static int	check_format(va_list va, char str)
 	return (counter);
 }
 
-int	ft_printf(const char *str, ...)
+int ft_printf(const char *str, ...)
 {
-	int		counter;
-	int		i;
-	va_list	va;
+	int counter;
+	int i;
+	va_list va;
 
 	i = 0;
 	counter = 0;

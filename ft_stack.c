@@ -1,19 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack.c                                         :+:      :+:    :+:   */
+/*   Linked list.C                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/01 10:59:25 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/03/05 17:39:15 by yrhandou         ###   ########.fr       */
+/*   Created: 2025/03/07 14:51:17 by yrhandou          #+#    #+#             */
+/*   Updated: 2025/03/07 15:29:32 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PushSwap.h"
-#include "coreutils/libft.h"
+#include "libft.h"
 
-void	print_stacks_side_by_side(t_stack *stack1, t_stack *stack2)
+t_stack *create_node(int data)
+{
+	t_stack *new_node = (t_stack *)malloc(sizeof(t_stack));
+	if (!new_node)
+		return NULL;
+	new_node->data = data;
+	new_node->next = NULL;
+	return new_node;
+}
+
+void link_node(t_stack *head, int data)
+{
+	t_stack *tmp = head;
+	t_stack *new_node = create_node(data);
+	if (!new_node)
+		return;
+	head->next = new_node;
+}
+
+void ft_push_node(t_stack **head, int data)
+{
+	// ? t_stack **tmp = head;
+	// ! t_stack *new_node = create_node(data);
+	// ^ if (!new_node)
+	// *	return;
+	// new_node->next = *head;
+	// *head = new_node;
+}
+void print_stacks_side_by_side(t_stack *stack1, t_stack *stack2)
 {
 	while ((stack1 != NULL) || (stack2 != NULL))
 	{
@@ -39,7 +66,7 @@ void	print_stacks_side_by_side(t_stack *stack1, t_stack *stack2)
 	ft_putstr_fd(RESET "", 1);
 }
 
-void	print_stack(t_stack *stack)
+void print_stack(t_stack *stack)
 {
 	ft_printf(BLU "|     |\n");
 	while (stack)
@@ -51,30 +78,4 @@ void	print_stack(t_stack *stack)
 	ft_printf(BLK "Stack A\n");
 }
 
-t_stack	*create_node(int data)
-{
-	t_stack	*new_node;
 
-	new_node = (t_stack *)malloc(sizeof(t_stack));
-	if (!new_node)
-		return (NULL);
-	new_node->data = data;
-	new_node->next = NULL;
-	return (new_node);
-}
-
-void	push_node(t_stack **head, int data)
-{
-	t_stack	*new_node;
-
-	new_node = create_node(data);
-	if (!new_node)
-		return ;
-	if (!(*head))
-	{
-		*head = new_node;
-		return ;
-	}
-	new_node->next = *head;
-	*head = new_node;
-}

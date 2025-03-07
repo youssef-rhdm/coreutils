@@ -1,18 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_put_fd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 08:47:58 by yrhandou          #+#    #+#             */
-/*   Updated: 2024/11/20 13:20:07 by yrhandou         ###   ########.fr       */
+/*   Created: 2025/03/07 14:41:29 by yrhandou          #+#    #+#             */
+/*   Updated: 2025/03/07 14:42:26 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}
+void ft_putstr_fd(char *s, int fd)
+{
+	size_t i;
+
+	if (!s)
+		return;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
+}
+void ft_putendl_fd(char *s, int fd)
+{
+	size_t i;
+
+	if (!s)
+		return;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
+	ft_putchar_fd('\n', fd);
+}
+void ft_putnbr_fd(int n, int fd)
 {
 	if (n == -2147483648)
 	{

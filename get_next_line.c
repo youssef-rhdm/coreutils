@@ -6,7 +6,7 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 13:59:28 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/02/15 15:17:28 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/03/07 14:59:51 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,16 @@ static char	*read_buffer(int fd, char *bag)
 		free(temp);
 	}
 	return (free(buffer), bag);
+}
+int ft_getchar(void)
+{
+	unsigned char c;
+	int bytes_read;
+
+	bytes_read = read(0, &c, 1);
+	if (bytes_read <= 0)
+		return (-1);
+	return ((int)c);
 }
 
 char	*super_get_next_line(int fd)
