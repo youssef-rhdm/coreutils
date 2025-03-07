@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Linked list.C                                      :+:      :+:    :+:   */
+/*   ft_stack.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:51:17 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/03/07 15:29:32 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/03/07 17:35:47 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ t_stack *create_node(int data)
 
 void link_node(t_stack *head, int data)
 {
-	t_stack *tmp = head;
 	t_stack *new_node = create_node(data);
 	if (!new_node)
 		return;
@@ -33,6 +32,7 @@ void link_node(t_stack *head, int data)
 
 void ft_push_node(t_stack **head, int data)
 {
+	(**head).data = data;
 	// ? t_stack **tmp = head;
 	// ! t_stack *new_node = create_node(data);
 	// ^ if (!new_node)

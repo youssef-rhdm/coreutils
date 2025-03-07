@@ -6,7 +6,7 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:48:15 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/03/07 15:48:26 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/03/07 17:36:24 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <stdarg.h>
 
 /*
-	TODO:  Add New Functions to the header
+	TODO: Fix Linked List Operations
 */
 
 
@@ -104,6 +104,10 @@ int		ft_getchar(void);
 char	*get_next_line(int fd);
 char	*super_get_next_line(int fd);
 int		*ft_super_strlen(char **array);
-void	ft_print_stacks_side_by_side(t_stack *stack1, t_stack *stack2);
+void	print_stacks_side_by_side(t_stack *stack1, t_stack *stack2);
 void	print_stack(t_stack *stack);
+t_stack	*create_node(int data);
+void	link_node(t_stack *head, int data);
+void	ft_push_node(t_stack **head, int data);
+
 #endif
