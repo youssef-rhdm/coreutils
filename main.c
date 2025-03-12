@@ -6,7 +6,7 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 09:07:45 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/03/10 06:49:33 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/03/11 21:19:08 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,16 @@ int *ft_factors_count(int num)
 
 int main(int argc, char const *argv[])
 {
-	int i;
+	// int i;
+	// i = 0;
+	// while (ft_factors_count(100)[i])
+	// {
+	// ft_putnbr(ft_factors_count(100)[i++]);
+	// puts("");
 
-	i = 0;
-	while (ft_factors_count(100)[i])
-	{
-	ft_putnbr(ft_factors_count(100)[i++]);
-	puts("");
-
-	}
+	// }
+	unsigned char a = 97;
+	printf("%d",ft_factors_count(10)[0]);
 	return 0;
 }
 

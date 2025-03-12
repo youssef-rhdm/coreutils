@@ -6,7 +6,7 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 15:00:53 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/03/07 17:31:53 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/03/12 08:54:49 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -269,4 +269,88 @@ void ft_bzero(void *s, size_t n)
 		str[i] = 0;
 		i++;
 	}
+}
+int	ft_str_isspace(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!ft_isspace(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	ft_str_is_int(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+		return (0);
+	if ((str[0] == '-' || str[0] == '+') && str[i + 1] != '\0')
+		i++;
+	else if ((str[0] == '-' || str[0] == '+') && str[i + 1] == '\0')
+		return (0);
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	if ((ft_atoi_modified(str) > INT_MAX || ft_atoi_modified(str) < INT_MIN))
+		return (0);
+	return (1);
+}
+
+int	ft_is_int_array(char **s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (!ft_str_is_int(s[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	ft_is_duplicated(char **str)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (str[i])
+	{
+		j = i + 1;
+		while (str[j])
+		{
+			if (ft_atoi(str[i]) == ft_atoi(str[j]))
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+int	ft_is_sorted(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] && str[i + 1])
+	{
+		if (ft_atoi_modified(str[i]) > ft_atoi_modified(str[i + 1]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
