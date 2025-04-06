@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lst_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 09:07:45 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/04/06 14:08:15 by yrhandou         ###   ########.fr       */
+/*   Created: 2025/04/06 11:58:16 by yrhandou          #+#    #+#             */
+/*   Updated: 2025/04/06 14:11:07 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <libc.h>
 
-int main(int argc, char const *argv[])
+t_list *ft_lstnew(void *content)
 {
-	t_list *l1;
-	t_list *l2;
+	t_list *node;
 
-	double x = 11.0;
-	double Z = 88.0;
-	l1 = ft_lstnew(&x);
-	l2 = ft_lstnew(&Z);
-	ft_lstadd_front(&l1,l2);
-	printf("%f\n", *(double *)(l1->next->content));
-	return 0;
+	node = malloc(sizeof(t_list));
+	if(!node)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return node;
 }
-
+void ft_lstadd_front(t_list **lst, t_list *new)
+{
+	new->next = *lst;
+	(*lst) = new;
+}
+int ft_lstsize(t_list *lst);

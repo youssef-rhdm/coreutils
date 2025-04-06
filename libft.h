@@ -6,7 +6,7 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:48:15 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/03/07 17:36:24 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/04/06 14:11:13 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,6 @@
 /*
 	TODO: Fix Linked List Operations
 */
-
-
-typedef struct s_stack
-{
-	int data;
-	struct s_stack *next;
-	struct s_stack *prev;
-} t_stack;
 
 typedef struct s_list
 {
@@ -59,6 +51,7 @@ typedef struct s_list
 # define RESET "\e[0m"
 
 int		ft_printf(const char *str, ...);
+char	*get_next_line(int fd);
 int		ft_putchar(char c);
 int		ft_putstr(char *str);
 int		ft_putptr(void *ptr, char flag);
@@ -74,24 +67,25 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
-void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+size_t	ft_strlen(const char *s);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_memset(void *b, int c, size_t len);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_calloc(size_t count, size_t size);
+void	ft_bzero(void *s, size_t n);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int c, int fd);
-void	ft_bzero(void *s, size_t n);
-int		ft_memcmp(const void *s1, const void *s2, size_t n);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
-size_t	ft_strlen(const char *s);
 int		ft_atoi(const char *str);
+long	ft_atoi_modified(const char *str) ;
 int		ft_isalpha(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
@@ -101,13 +95,19 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 int		ft_isspace(int c);
 int		ft_getchar(void);
-char	*get_next_line(int fd);
 char	*super_get_next_line(int fd);
 int		*ft_super_strlen(char **array);
-void	print_stacks_side_by_side(t_stack *stack1, t_stack *stack2);
-void	print_stack(t_stack *stack);
-t_stack	*create_node(int data);
-void	link_node(t_stack *head, int data);
-void	ft_push_node(t_stack **head, int data);
-
+// * Linked List
+void	print_stacks_side_by_side(t_list *stack1, t_list *stack2);
+void	print_stack(t_list *stack);
+t_list	*create_node(int data);
+void	link_node(t_list *head, int data);
+void	ft_push_node(t_list **head, int data);
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+int ft_lstsize(t_list *lst);
+// ! Math
+int		*ft_factors_count(int num);
+int		ft_abs(int num);
+double	ft_pow(double num, double power);
 #endif

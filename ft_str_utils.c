@@ -6,7 +6,7 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 15:00:53 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/03/12 08:54:49 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/04/06 10:22:02 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,6 +171,27 @@ char *ft_strtrim(char const *s1, char const *set)
 	while (x < len && ft_strchr(set, s1[len - 1]))
 		len--;
 	return (ft_substr(s1, x, len - x));
+}
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	unsigned int i;
+	char *str;
+	unsigned int len;
+
+	i = 0;
+	if (!s || !f)
+		return (NULL);
+	len = ft_strlen(s);
+	str = malloc(sizeof(char) * len + 1);
+	if (!str)
+		return (NULL);
+	while (i < len)
+	{
+		str[i] = f(i, s[i]);
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
 void ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
