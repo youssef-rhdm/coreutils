@@ -6,7 +6,7 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:48:15 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/04/06 14:11:13 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/04/08 23:01:45 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,20 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdarg.h>
+
+#ifdef __APPLE__
+	#define FT_OPEN_MAX OPEN_MAX
+#endif
+#ifdef __MINGW__
+	#define FT_OPEN_MAX OPEN_MAX
+#endif
+#ifdef __MINGW32_MAJOR_VERSION
+#define FT_OPEN_MAX OPEN_MAX
+#endif
+#ifdef __linux__
+#define FT_OPEN_MAX FOPEN_MAX
+#endif
+
 
 // # define OPEN_MAX 10240
 /*
@@ -49,7 +63,9 @@ typedef struct s_list
 # define BHMAG "\e[1;95m"
 # define BHCYN "\e[1;96m"
 # define BHWHT "\e[1;97m"
-# define RESET "\e[0m"
+# define SUCCESS 1
+# define FAIL 0
+
 
 int		ft_printf(const char *str, ...);
 char	*get_next_line(int fd);
@@ -95,10 +111,13 @@ int		ft_isprint(int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 int		ft_isspace(int c);
+int		ft_is_int_array(char **s);
+int		ft_str_isspace(char *str);
+int		ft_is_duplicated(char **str);
 int		ft_getchar(void);
 char	*super_get_next_line(int fd);
 int		*ft_super_strlen(char **array);
-// * Linked List
+// ? Linked List
 void	print_stacks_side_by_side(t_list *stack1, t_list *stack2);
 void	print_stack(t_list *stack);
 t_list	*create_node(int data);
@@ -113,8 +132,9 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-// ! Math
-int		*ft_factors_count(int num);
+int ft_is_sorted(char **str);
+// * Math
+	int *ft_factors_count(int num);
 int		ft_abs(int num);
 double	ft_pow(double num, double power);
 #endif

@@ -6,7 +6,7 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 15:00:53 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/04/06 10:22:02 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/04/08 22:28:57 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -332,6 +332,8 @@ int	ft_is_int_array(char **s)
 	int	i;
 
 	i = 0;
+	if(!s)
+		return (ft_putendl_fd(RED"Failure: Empty Int Array",2),FAIL);
 	while (s[i])
 	{
 		if (!ft_str_is_int(s[i]))
