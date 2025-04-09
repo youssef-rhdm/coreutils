@@ -6,7 +6,7 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 13:59:28 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/03/07 14:59:51 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/04/09 09:18:06 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int ft_getchar(void)
 
 char	*super_get_next_line(int fd)
 {
-	static char	*bag[OPEN_MAX];
+	static char	*bag[FT_OPEN_MAX];
 	char		*line;
 	char		*temp;
 

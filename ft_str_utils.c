@@ -6,7 +6,7 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 15:00:53 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/04/08 22:28:57 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/04/09 09:06:04 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -299,10 +299,10 @@ int	ft_str_isspace(char *str)
 	while (str[i])
 	{
 		if (!ft_isspace(str[i]))
-			return (0);
+			return (FAIL);
 		i++;
 	}
-	return (1);
+	return (SUCCESS);
 }
 
 int	ft_str_is_int(char *str)
@@ -311,20 +311,20 @@ int	ft_str_is_int(char *str)
 
 	i = 0;
 	if (!str)
-		return (0);
+		return (ft_putendl_fd(RED "Failure: Empty Array", 2), FAIL);
 	if ((str[0] == '-' || str[0] == '+') && str[i + 1] != '\0')
 		i++;
 	else if ((str[0] == '-' || str[0] == '+') && str[i + 1] == '\0')
-		return (0);
+		return (FAIL);
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
-			return (0);
+			return (FAIL);
 		i++;
 	}
 	if ((ft_atoi_modified(str) > INT_MAX || ft_atoi_modified(str) < INT_MIN))
-		return (0);
-	return (1);
+		return (FAIL);
+	return (SUCCESS);
 }
 
 int	ft_is_int_array(char **s)
@@ -332,15 +332,15 @@ int	ft_is_int_array(char **s)
 	int	i;
 
 	i = 0;
-	if(!s)
-		return (ft_putendl_fd(RED"Failure: Empty Int Array",2),FAIL);
+	if (!s)
+		return (ft_putendl_fd(RED "Failure: Empty Array", 2), FAIL);
 	while (s[i])
 	{
 		if (!ft_str_is_int(s[i]))
-			return (0);
+			return (FAIL);
 		i++;
 	}
-	return (1);
+	return (SUCCESS);
 }
 
 int	ft_is_duplicated(char **str)
@@ -350,18 +350,20 @@ int	ft_is_duplicated(char **str)
 
 	i = 0;
 	j = 0;
+	if (!str)
+		return (ft_putendl_fd(RED "Failure: Empty Array", 2), FAIL);
 	while (str[i])
 	{
 		j = i + 1;
 		while (str[j])
 		{
 			if (ft_atoi(str[i]) == ft_atoi(str[j]))
-				return (1);
+				return (SUCCESS);
 			j++;
 		}
 		i++;
 	}
-	return (0);
+	return (FAIL);
 }
 
 int	ft_is_sorted(char **str)
@@ -372,8 +374,8 @@ int	ft_is_sorted(char **str)
 	while (str[i] && str[i + 1])
 	{
 		if (ft_atoi_modified(str[i]) > ft_atoi_modified(str[i + 1]))
-			return (0);
+			return (FAIL);
 		i++;
 	}
-	return (1);
+	return (SUCCESS);
 }

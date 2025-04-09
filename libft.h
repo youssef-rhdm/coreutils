@@ -6,7 +6,7 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:48:15 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/04/08 23:01:45 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/04/09 14:56:42 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 #define FT_OPEN_MAX OPEN_MAX
 #endif
 #ifdef __linux__
+# include <stdio.h>
 #define FT_OPEN_MAX FOPEN_MAX
 #endif
 

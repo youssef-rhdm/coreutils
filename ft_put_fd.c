@@ -6,7 +6,7 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:41:29 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/03/07 14:42:26 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/04/09 09:25:08 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,9 @@ void ft_putstr_fd(char *s, int fd)
 }
 void ft_putendl_fd(char *s, int fd)
 {
-	size_t i;
-
 	if (!s)
 		return;
-	i = 0;
-	while (s[i] != '\0')
-	{
-		ft_putchar_fd(s[i], fd);
-		i++;
-	}
+	ft_putstr_fd(s, fd);
 	ft_putchar_fd('\n', fd);
 }
 void ft_putnbr_fd(int n, int fd)
