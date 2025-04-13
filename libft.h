@@ -6,7 +6,7 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:48:15 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/04/09 15:45:32 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/04/13 12:52:14 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,11 +119,6 @@ int		ft_getchar(void);
 char	*super_get_next_line(int fd);
 int		*ft_super_strlen(char **array);
 // ? Linked List
-void	print_stacks_side_by_side(t_list *stack1, t_list *stack2);
-void	print_stack(t_list *stack);
-t_list	*create_node(int data);
-void	link_node(t_list *head, int data);
-void	ft_push_node(t_list **head, int data);
 t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);
 void	ft_lstadd_front(t_list **lst, t_list *new);
