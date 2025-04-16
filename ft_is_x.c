@@ -6,7 +6,7 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:36:22 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/03/07 15:00:58 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/04/16 20:35:13 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,9 @@ int ft_isspace(int c)
 	if (c == 32 || (c >= 9 && c <= 13))
 		return (1);
 	return (0);
+}
+int ft_is_uint(char *str)
+{
+	if (!ft_is_int(str) || ft_atoi(str) < 0 || str[0] == '-')
+		return (0);
 }

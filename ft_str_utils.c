@@ -6,7 +6,7 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 15:00:53 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/04/09 09:06:04 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/04/16 20:36:47 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -305,7 +305,7 @@ int	ft_str_isspace(char *str)
 	return (SUCCESS);
 }
 
-int	ft_str_is_int(char *str)
+int	ft_is_int(char *str)
 {
 	int	i;
 

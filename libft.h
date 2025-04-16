@@ -6,7 +6,7 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:48:15 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/04/13 12:52:14 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/04/16 20:41:31 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,9 @@ int		ft_isprint(int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 int		ft_isspace(int c);
-int		ft_is_int_array(char **s);
 int		ft_str_isspace(char *str);
+int		ft_is_int_array(char **s);
+int		ft_is_int(char *str);
 int		ft_is_duplicated(char **str);
 int		ft_getchar(void);
 char	*super_get_next_line(int fd);
@@ -130,7 +131,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int ft_is_sorted(char **str);
 // * Math
-	int *ft_factors_count(int num);
+int		*ft_factors_count(int num);
 int		ft_abs(int num);
 double	ft_pow(double num, double power);
 #endif
