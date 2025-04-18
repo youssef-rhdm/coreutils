@@ -6,7 +6,7 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 15:00:53 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/04/16 20:36:47 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/04/16 20:48:26 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -305,28 +305,6 @@ int	ft_str_isspace(char *str)
 	return (SUCCESS);
 }
 
-int	ft_is_int(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (!str)
-		return (ft_putendl_fd(RED "Failure: Empty Array", 2), FAIL);
-	if ((str[0] == '-' || str[0] == '+') && str[i + 1] != '\0')
-		i++;
-	else if ((str[0] == '-' || str[0] == '+') && str[i + 1] == '\0')
-		return (FAIL);
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]))
-			return (FAIL);
-		i++;
-	}
-	if ((ft_atoi_modified(str) > INT_MAX || ft_atoi_modified(str) < INT_MIN))
-		return (FAIL);
-	return (SUCCESS);
-}
-
 int	ft_is_int_array(char **s)
 {
 	int	i;
@@ -336,7 +314,7 @@ int	ft_is_int_array(char **s)
 		return (ft_putendl_fd(RED "Failure: Empty Array", 2), FAIL);
 	while (s[i])
 	{
-		if (!ft_str_is_int(s[i]))
+		if (!ft_is_int(s[i]))
 			return (FAIL);
 		i++;
 	}

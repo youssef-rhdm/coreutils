@@ -6,7 +6,7 @@
 /*   By: yrhandou <yrhandou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:48:15 by yrhandou          #+#    #+#             */
-/*   Updated: 2025/04/16 20:41:31 by yrhandou         ###   ########.fr       */
+/*   Updated: 2025/04/17 23:36:18 by yrhandou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ typedef struct s_list
 # define BHMAG "\e[1;95m"
 # define BHCYN "\e[1;96m"
 # define BHWHT "\e[1;97m"
+# define RESET "\e[0m"
 # define SUCCESS 1
 # define FAIL 0
 
@@ -115,6 +116,7 @@ int		ft_isspace(int c);
 int		ft_str_isspace(char *str);
 int		ft_is_int_array(char **s);
 int		ft_is_int(char *str);
+int		ft_is_uint(char *str);
 int		ft_is_duplicated(char **str);
 int		ft_getchar(void);
 char	*super_get_next_line(int fd);
