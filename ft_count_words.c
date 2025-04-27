@@ -12,23 +12,3 @@
 
 #include "libft.h"
 
-int	ft_count_words(char *str, char delimiter)
-{
-	int		i;
-	int		count;
-
-	i = 0;
-	count = 0;
-	while (str[i])
-	{
-		if (str[i] == delimiter)
-			i++;
-		else if (str[i] != delimiter)
-		{
-			count++;
-			while (str[i] && str[i] != delimiter)
-				i++;
-		}
-	}
-	return (count);
-}

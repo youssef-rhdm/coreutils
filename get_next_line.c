@@ -63,7 +63,7 @@ static char	*read_buffer(int fd, char *bag)
 	char	*buffer;
 
 	temp = 0;
-	buffer = malloc(BUFFER_SIZE + 1 * sizeof(char));
+	buffer = ft_calloc(BUFFER_SIZE + 1 ,sizeof(char));
 	if (!buffer)
 		return (free(bag), bag = NULL, NULL);
 	while (ft_strchr(bag, '\n') == NULL)

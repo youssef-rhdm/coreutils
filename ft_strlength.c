@@ -32,7 +32,7 @@ int *ft_super_strlen(char **array)
 	i = 0;
 	while (array[i])
 		i++;
-	result = malloc(sizeof(int) * i);
+	result = ft_calloc(i,sizeof(int));
 	i = 0;
 	while (array[i])
 	{
@@ -92,4 +92,25 @@ int ft_strncmp(const char *s1, const char *s2, size_t n)
 	if (n == i)
 		return (0);
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
+
+int ft_count_words(char *str, char delimiter)
+{
+	int i;
+	int count;
+
+	i = 0;
+	count = 0;
+	while (str[i])
+	{
+		if (str[i] == delimiter)
+			i++;
+		else if (str[i] != delimiter)
+		{
+			count++;
+			while (str[i] && str[i] != delimiter)
+				i++;
+		}
+	}
+	return (count);
 }

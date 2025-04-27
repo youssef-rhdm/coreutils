@@ -94,7 +94,7 @@ char *ft_strdup(const char *s1)
 	if (!s1)
 		return (NULL);
 	len = ft_strlen(s1);
-	str = malloc(sizeof(char) * len + 1);
+	str = ft_calloc(len + 1,sizeof(char));
 	if (!str)
 		return (NULL);
 	i = 0;
@@ -120,7 +120,7 @@ char *ft_strjoin(char const *s1, char const *s2)
 	if (!s2)
 		return (ft_strdup(s1));
 	total_size = ft_strlen(s1) + ft_strlen(s2);
-	str = malloc(total_size + 1);
+	str = ft_calloc(total_size + 1, sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	head = str;
@@ -144,7 +144,7 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 		len = 0;
 	else if (len > length - start)
 		len = length - start;
-	str = malloc(sizeof(char) * len + 1);
+	str = ft_calloc(len + 1,sizeof(char));
 	if (!str)
 		return (NULL);
 	i = 0;
@@ -182,7 +182,7 @@ char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!s || !f)
 		return (NULL);
 	len = ft_strlen(s);
-	str = malloc(sizeof(char) * len + 1);
+	str = ft_calloc(len + 1,sizeof(char));
 	if (!str)
 		return (NULL);
 	while (i < len)
@@ -256,7 +256,7 @@ char **ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	str = (char **)malloc(sizeof(char *) * (word_counter(s, c) + 1));
+	str = (char **)ft_calloc((word_counter(s, c) + 1), sizeof(char *));
 	if (!str)
 		return (NULL);
 	i = 0;

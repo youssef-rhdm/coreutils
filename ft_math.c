@@ -26,7 +26,7 @@ int *ft_factors_count(int num)
 			counter++;
 		i++;
 	}
-	factors = malloc(sizeof(int) * (counter + 1));
+	factors = ft_calloc(counter + 1,sizeof(int));
 	if (!factors)
 		return (NULL);
 	counter = 0;

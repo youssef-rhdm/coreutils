@@ -126,7 +126,7 @@ static char *itoa_ft(int count, int n)
 {
 	char *str;
 
-	str = (char *)malloc(count + 2);
+	str = (char *)ft_calloc(count + 2,sizeof(char));
 	if (!str)
 		return (NULL);
 	str[count + 1] = '\0';
@@ -147,7 +147,7 @@ char *ft_itoa(int n)
 	count = count_num(n);
 	if (n < 0)
 		return (itoa_ft(count, n));
-	str = (char *)malloc(count + 1);
+	str = (char *)ft_calloc(count + 1,sizeof(char));
 	if (!str)
 		return (NULL);
 	else
