@@ -15,6 +15,7 @@
 static char	*leftovers(char *s)
 {
 	char	*left;
+	char	*newline_pos;
 	size_t	i;
 
 	i = 0;
@@ -29,9 +30,10 @@ static char	*leftovers(char *s)
 		}
 		i++;
 	}
-	if (!ft_strchr(s, '\n'))
+	newline_pos = ft_strchr(s, '\n');
+	if (!newline_pos)
 		return (NULL);
-	left = ft_substr(s, i, ft_strlen(ft_strchr(s, '\n')));
+	left = ft_substr(s, i, ft_strlen(s) - i);
 	return (left);
 }
 
@@ -66,7 +68,7 @@ static char	*read_buffer(int fd, char *bag)
 	buffer = ft_calloc(BUFFER_SIZE + 1 ,sizeof(char));
 	if (!buffer)
 		return (free(bag), bag = NULL, NULL);
-	while (ft_strchr(bag, '\n') == NULL)
+	while (!bag || ft_strchr(bag, '\n') == NULL)
 	{
 		byte_count = read(fd, buffer, BUFFER_SIZE);
 		if (byte_count < 0)
@@ -77,6 +79,8 @@ static char	*read_buffer(int fd, char *bag)
 		temp = bag;
 		bag = ft_strjoin(bag, buffer);
 		free(temp);
+		if (!bag)
+			return (free(buffer), NULL);
 	}
 	return (free(buffer), bag);
 }

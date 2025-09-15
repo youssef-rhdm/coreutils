@@ -25,6 +25,8 @@ t_list *ft_lstnew(void *content)
 }
 void ft_lstadd_front(t_list **lst, t_list *new)
 {
+	if (!new)
+		return;
 	new->next = *lst;
 	(*lst) = new;
 }
@@ -60,18 +62,81 @@ t_list *ft_lstlast(t_list *lst)
 // void ft_lstadd_back(t_list **lst, t_list *new){
 
 // }
-// void ft_lstdelone(t_list *lst, void (*del)(void *)){
+void ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	if (!lst)
+		return;
+	if (del && lst->content)
+		del(lst->content);
+	free(lst);
+}
 
-// }
-// void ft_lstclear(t_list **lst, void (*del)(void *)){
+void ft_lstclear(t_list **lst, void (*del)(void *))
+{
+	t_list *temp;
+	
+	if (!lst || !*lst)
+		return;
+	while (*lst)
+	{
+		temp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = temp;
+	}
+	*lst = NULL;
+}
+void ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list *last;
 
-// }
-// void ft_lstiter(t_list *lst, void (*f)(void *)){
+	if (!new)
+		return;
+	if (!*lst)
+	{
+		*lst = new;
+		return;
+	}
+	last = ft_lstlast(*lst);
+	if (last)
+		last->next = new;
+}
 
-// }
-// t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *)){
+void ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	if (!f)
+		return;
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
+}
 
-// }
+t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+{
+	t_list *new_list;
+	t_list *new_node;
+	void *new_content;
+
+	if (!f)
+		return (NULL);
+	new_list = NULL;
+	while (lst)
+	{
+		new_content = f(lst->content);
+		new_node = ft_lstnew(new_content);
+		if (!new_node)
+		{
+			if (del && new_content)
+				del(new_content);
+			ft_lstclear(&new_list, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_list, new_node);
+		lst = lst->next;
+	}
+	return (new_list);
+}
 
 // t_list *create_node(int data)
 // {

@@ -34,6 +34,8 @@ char *ft_strrchr(const char *s, int c)
 {
 	size_t i;
 
+	if (!s)
+		return (NULL);
 	i = ft_strlen(s);
 	while (i > 0)
 	{
@@ -51,6 +53,8 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t j;
 	size_t k;
 
+	if (!haystack || !needle)
+		return (NULL);
 	i = 0;
 	if (needle[0] == '\0')
 		return ((char *)(&haystack[i]));
@@ -281,10 +285,10 @@ void ft_bzero(void *s, size_t n)
 	size_t i;
 	unsigned char *str;
 
+	if (!s || n == 0)
+		return;
 	str = (unsigned char *)s;
 	i = 0;
-	if (n == 0)
-		return;
 	while (i < n)
 	{
 		str[i] = 0;
