@@ -1,0 +1,16 @@
+# Compiled object files
+*.o
+
+# Archive files
+*.a
+
+# Executable files
+test_program
+
+# macOS files
+.DS_Store
+
+# Temporary files
+/tmp/
+*.tmp
+*.temp

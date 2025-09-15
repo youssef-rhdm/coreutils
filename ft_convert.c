@@ -18,14 +18,16 @@ void *ft_calloc(size_t count, size_t size)
 	size_t i;
 	size_t alloc_size;
 
+	if (count == 0 || size == 0)
+		return (malloc(0));
 	alloc_size = size * count;
-	if (count && size && alloc_size / count != size)
+	if (alloc_size / count != size)
 		return (NULL);
 	i = 0;
 	ptr = malloc(alloc_size);
 	if (ptr == NULL)
 		return (NULL);
-	while (i < count * size)
+	while (i < alloc_size)
 	{
 		ptr[i] = 0;
 		i++;

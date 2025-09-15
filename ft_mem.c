@@ -17,6 +17,8 @@ void *ft_memchr(const void *s, int c, size_t n)
 	size_t i;
 	const unsigned char *str;
 
+	if (!s || n == 0)
+		return (NULL);
 	i = 0;
 	str = (const unsigned char *)s;
 	while (i < n)
@@ -33,6 +35,14 @@ int ft_memcmp(const void *s1, const void *s2, size_t n)
 	const unsigned char *str1;
 	const unsigned char *str2;
 
+	if (!s1 && !s2)
+		return (0);
+	if (!s1)
+		return (-1);
+	if (!s2)
+		return (1);
+	if (n == 0)
+		return (0);
 	i = 0;
 	str1 = (const unsigned char *)s1;
 	str2 = (const unsigned char *)s2;
@@ -50,6 +60,10 @@ void *ft_memcpy(void *dst, const void *src, size_t n)
 	unsigned char *dest;
 	const unsigned char *sorc;
 
+	if (!dst && !src)
+		return (NULL);
+	if (n == 0)
+		return (dst);
 	dest = (unsigned char *)dst;
 	sorc = (const unsigned char *)src;
 	i = 0;
@@ -91,6 +105,8 @@ void *ft_memset(void *b, int c, size_t len)
 	size_t i;
 	unsigned char *str;
 
+	if (!b)
+		return (NULL);
 	str = (unsigned char *)b;
 	i = 0;
 	while (i < len)
