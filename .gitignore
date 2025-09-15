@@ -6,6 +6,7 @@
 
 # Executable files
 test_program
+test_memory
 
 # macOS files
 .DS_Store
